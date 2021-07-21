@@ -8,10 +8,24 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "GraphPath",
+"language": "GDScript",
+"path": "res://GraphPath.gd"
+} ]
+_global_script_class_icons={
+"GraphPath": ""
+}
+
 [application]
 
 config/name="MOBA Manager"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/path_graph/plugin.cfg" )
 
 [input]
 
