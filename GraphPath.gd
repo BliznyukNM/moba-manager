@@ -20,5 +20,8 @@ export var graph: Dictionary = {
 	},
 	NodePath("Dire/T1"): {
 		NodePath("Mid"): 1
+	},
+	NodePath("Mid"): {
+		
 	}
 }
