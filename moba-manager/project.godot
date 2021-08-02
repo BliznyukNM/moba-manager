@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "GraphPath",
 "language": "GDScript",
-"path": "res://GraphPath.gd"
+"path": "res://src/GraphPath.gd"
 } ]
 _global_script_class_icons={
 "GraphPath": ""

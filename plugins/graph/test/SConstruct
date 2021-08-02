@@ -1,0 +1,4 @@
+import os
+
+env = Environment(CC = 'clang++', CCFLAGS = ['-O2', '-std=c++17'])
+env.Program('test.cpp')
