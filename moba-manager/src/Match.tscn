@@ -13,6 +13,7 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
+tick_multiplier = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

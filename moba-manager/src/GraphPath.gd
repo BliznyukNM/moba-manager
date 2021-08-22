@@ -8,7 +8,6 @@ export var graph: Dictionary
 func get_path_weight(from_node: Node2D, to_node: Node2D) -> int:
 	var info: Dictionary = graph.get(get_path_to(from_node))
 	var next_point: int = info.get(get_path_to(to_node))
-	# assert(not (next_point is int), "Expected from %s to %s straight path, but get %s" % [from_node, to_node, next_point])
 	return next_point
 
 
