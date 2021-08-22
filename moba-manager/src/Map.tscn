@@ -7,7 +7,6 @@
 
 [node name="Map" type="Node"]
 script = ExtResource( 3 )
-tick_multiplier = 5.0
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
