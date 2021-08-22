@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Kenney UI/grey_panel.png" type="Texture" id=1]
 [ext_resource path="res://src/GraphPath.gd" type="Script" id=2]
 [ext_resource path="res://src/Map.gd" type="Script" id=3]
 [ext_resource path="res://src/UnitSpawner.gd" type="Script" id=4]
-[ext_resource path="res://src/Minion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/RadiantMinion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/DireMinion.tscn" type="PackedScene" id=7]
 
 [node name="Map" type="Node"]
 script = ExtResource( 3 )
@@ -18,7 +19,7 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 graph = {
 NodePath("Radiant_Fountain"): {
-NodePath("Radiant_T2"): 10,
+NodePath("Radiant_T2"): 50,
 NodePath("Radiant_T1"): NodePath("Radiant_T2"),
 NodePath("Mid"): NodePath("Radiant_T2"),
 NodePath("Dire_T1"): NodePath("Radiant_T2"),
@@ -26,23 +27,23 @@ NodePath("Dire_T2"): NodePath("Radiant_T2"),
 NodePath("Dire_Fountain"): NodePath("Radiant_T2")
 },
 NodePath("Radiant_T2"): {
-NodePath("Radiant_T1"): 10,
-NodePath("Radiant_Fountain"): 10,
+NodePath("Radiant_T1"): 50,
+NodePath("Radiant_Fountain"): 50,
 NodePath("Mid"): NodePath("Radiant_T1"),
 NodePath("Dire_T1"): NodePath("Radiant_T1"),
 NodePath("Dire_T2"): NodePath("Radiant_T1"),
 NodePath("Dire_Fountain"): NodePath("Radiant_T1")
 },
 NodePath("Radiant_T1"): {
-NodePath("Mid"): 10,
-NodePath("Radiant_T2"): 10,
+NodePath("Mid"): 50,
+NodePath("Radiant_T2"): 50,
 NodePath("Radiant_Fountain"): NodePath("Radiant_T2"),
 NodePath("Dire_T1"): NodePath("Mid"),
 NodePath("Dire_T2"): NodePath("Mid"),
 NodePath("Dire_Fountain"): NodePath("Mid")
 },
 NodePath("Dire_Fountain"): {
-NodePath("Dire_T2"): 10,
+NodePath("Dire_T2"): 50,
 NodePath("Dire_T1"): NodePath("Dire_T2"),
 NodePath("Mid"): NodePath("Dire_T2"),
 NodePath("Radiant_T1"): NodePath("Dire_T2"),
@@ -50,24 +51,24 @@ NodePath("Radiant_T2"): NodePath("Dire_T2"),
 NodePath("Radiant_Fountain"): NodePath("Dire_T2")
 },
 NodePath("Dire_T2"): {
-NodePath("Dire_T1"): 10,
-NodePath("Dire_Fountain"): 10,
+NodePath("Dire_T1"): 50,
+NodePath("Dire_Fountain"): 50,
 NodePath("Mid"): NodePath("Dire_T1"),
 NodePath("Radiant_T1"): NodePath("Dire_T1"),
 NodePath("Radiant_T2"): NodePath("Dire_T1"),
 NodePath("Radiant_Fountain"): NodePath("Dire_T1")
 },
 NodePath("Dire_T1"): {
-NodePath("Mid"): 10,
-NodePath("Dire_T2"): 10,
+NodePath("Mid"): 50,
+NodePath("Dire_T2"): 50,
 NodePath("Dire_Fountain"): NodePath("Dire_T2"),
 NodePath("Radiant_T1"): NodePath("Mid"),
 NodePath("Radiant_T2"): NodePath("Mid"),
 NodePath("Radiant_Fountain"): NodePath("Mid")
 },
 NodePath("Mid"): {
-NodePath("Radiant_T1"): 10,
-NodePath("Dire_T1"): 10,
+NodePath("Radiant_T1"): 50,
+NodePath("Dire_T1"): 50,
 NodePath("Radiant_T2"): NodePath("Radiant_T1"),
 NodePath("Radiant_Fountain"): NodePath("Radiant_T1"),
 NodePath("Dire_T2"): NodePath("Dire_T1"),
@@ -95,22 +96,20 @@ position = Vector2( 131.604, -136.163 )
 
 [node name="Mid" type="Node2D" parent="PathGraph"]
 
-[node name="Units" type="Node" parent="."]
-
 [node name="Spawners" type="Node" parent="."]
 
-[node name="Radiant_Mid" type="Node" parent="Spawners"]
+[node name="Radiant" type="Node" parent="Spawners"]
 script = ExtResource( 4 )
-_ticks_spawn_rate = 30
-_spawn_units = [ ExtResource( 5 ) ]
-_spawn_root_path = NodePath("../../Units")
+_ticks_spawn_rate = 450
+_spawn_units = [ ExtResource( 6 ) ]
+_spawn_root_path = NodePath("../../PathGraph/Radiant_Fountain")
 _graph_path = NodePath("../../PathGraph")
 _path = [ NodePath("../../PathGraph/Radiant_Fountain"), NodePath("../../PathGraph/Radiant_T2"), NodePath("../../PathGraph/Radiant_T1"), NodePath("../../PathGraph/Mid"), NodePath("../../PathGraph/Dire_T1"), NodePath("../../PathGraph/Dire_T2"), NodePath("../../PathGraph/Dire_Fountain") ]
 
-[node name="Dire_Mid" type="Node" parent="Spawners"]
+[node name="Dire" type="Node" parent="Spawners"]
 script = ExtResource( 4 )
-_ticks_spawn_rate = 30
-_spawn_units = [ ExtResource( 5 ) ]
-_spawn_root_path = NodePath("../../Units")
+_ticks_spawn_rate = 450
+_spawn_units = [ ExtResource( 7 ) ]
+_spawn_root_path = NodePath("../../PathGraph/Dire_Fountain")
 _graph_path = NodePath("../../PathGraph")
 _path = [ NodePath("../../PathGraph/Dire_Fountain"), NodePath("../../PathGraph/Dire_T2"), NodePath("../../PathGraph/Dire_T1"), NodePath("../../PathGraph/Mid"), NodePath("../../PathGraph/Radiant_T1"), NodePath("../../PathGraph/Radiant_T2"), NodePath("../../PathGraph/Radiant_Fountain") ]

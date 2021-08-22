@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Kenney UI/red_tick.png" type="Texture" id=1]
+[ext_resource path="res://src/Minion.tscn" type="PackedScene" id=2]
+
+[node name="DireMinion" instance=ExtResource( 2 )]
+texture = ExtResource( 1 )
+alliance = 1
