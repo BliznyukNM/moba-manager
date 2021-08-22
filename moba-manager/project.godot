@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Sprite",
+"class": "BaseUnit",
+"language": "GDScript",
+"path": "res://src/BaseUnit.gd"
+}, {
 "base": "Node",
 "class": "GraphPath",
 "language": "GDScript",
 "path": "res://src/GraphPath.gd"
+}, {
+"base": "Node",
+"class": "Map",
+"language": "GDScript",
+"path": "res://src/Map.gd"
 } ]
 _global_script_class_icons={
-"GraphPath": ""
+"BaseUnit": "",
+"GraphPath": "",
+"Map": ""
 }
 
 [application]

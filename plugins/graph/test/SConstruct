@@ -1,4 +1,9 @@
+#!python
 import os
 
-env = Environment(CC = 'clang++', CCFLAGS = ['-O2', '-std=c++17'])
+env = Environment(CC = 'clang++', CCFLAGS = ['-O2', '-std=c++17'], COMPILATIONDB_USE_ABSPATH=True)
+
+env.Tool('compilation_db')
+env.CompilationDatabase()
+
 env.Program('test.cpp')

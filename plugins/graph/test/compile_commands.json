@@ -1,0 +1,8 @@
+[
+    {
+        "command": "clang++ -o test.o -c -O2 -std=c++17 test.cpp",
+        "directory": "/Users/bliznyuknm/Projects/moba-manager/plugins/graph/test",
+        "file": "test.cpp",
+        "output": "test.o"
+    }
+]
