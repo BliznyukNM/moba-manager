@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Hero",
+"language": "GDScript",
+"path": "res://src/Hero.gd"
+}, {
+"base": "Node",
+"class": "MatchUI",
+"language": "GDScript",
+"path": "res://src/MatchUI.gd"
+} ]
+_global_script_class_icons={
+"Hero": "",
+"MatchUI": ""
+}
+
 [application]
 
 config/name="MOBA Manager"
