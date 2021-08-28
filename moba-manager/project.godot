@@ -31,7 +31,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/path_graph/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [input]
 
