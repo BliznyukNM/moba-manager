@@ -23,8 +23,7 @@ var _attack_cooldown: int
 
 var current_health: int setget _set_current_health, _get_current_health
 func _set_current_health(value: int) -> void:
-	current_health = clamp(value, 0, base_health)
-	print("Health of %s: %d" % [name, current_health])
+	current_health = int(clamp(value, 0, base_health))
 	if current_health == 0: _die()
 func _get_current_health() -> int:
 	return current_health
