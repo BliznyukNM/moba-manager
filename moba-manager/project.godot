@@ -12,7 +12,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Hero",
 "language": "GDScript",
-"path": "res://src/Hero.gd"
+"path": "res://src/heroes/Hero.gd"
+}, {
+"base": "Node",
+"class": "HeroUI",
+"language": "GDScript",
+"path": "res://src/HeroUI.gd"
 }, {
 "base": "Node",
 "class": "MatchUI",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Hero": "",
+"HeroUI": "",
 "MatchUI": ""
 }
 
@@ -40,6 +46,10 @@ mouse_click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[locale]
+
+locale_filter=[ 0, [  ] ]
 
 [physics]
 
