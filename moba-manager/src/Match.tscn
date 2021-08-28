@@ -1,19 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/Map.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Match.gd" type="Script" id=2]
-[ext_resource path="res://src/TestBot.gd" type="Script" id=3]
+[ext_resource path="res://src/MatchUI.tscn" type="PackedScene" id=1]
 
 [node name="Match" type="Node"]
-script = ExtResource( 2 )
 
-[node name="Players" type="Node" parent="."]
-
-[node name="Player1" type="Node" parent="Players"]
-script = ExtResource( 3 )
-
-[node name="Map" parent="." instance=ExtResource( 1 )]
-tick_multiplier = 15.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="MatchUI" parent="." instance=ExtResource( 1 )]

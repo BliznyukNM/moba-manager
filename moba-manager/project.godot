@@ -8,28 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node2D",
-"class": "BaseUnit",
-"language": "GDScript",
-"path": "res://src/BaseUnit.gd"
-}, {
-"base": "Node",
-"class": "GraphPath",
-"language": "GDScript",
-"path": "res://src/GraphPath.gd"
-}, {
-"base": "Node",
-"class": "Map",
-"language": "GDScript",
-"path": "res://src/Map.gd"
-} ]
-_global_script_class_icons={
-"BaseUnit": "",
-"GraphPath": "",
-"Map": ""
-}
-
 [application]
 
 config/name="MOBA Manager"
