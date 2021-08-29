@@ -2,7 +2,7 @@ extends Node
 class_name MatchUI
 
 
-var radiant_hero_ui = preload("res://src/RadiantHeroUI.tscn")
+var radiant_hero_ui = preload("res://src/RadiantHero.tscn")
 var dire_hero_ui = preload("res://src/DireHeroUI.tscn")
 
 
@@ -26,3 +26,10 @@ func add_dire_hero(hero: Hero) -> void:
 	hero_ui.init(hero)
 	dire_root.add_child(hero_ui)
 	heroes[hero] = hero_ui
+
+
+func update() -> void:
+	for hero in radiant_root.get_children():
+		hero.update()
+	for hero in dire_root.get_children():
+		hero.update()
