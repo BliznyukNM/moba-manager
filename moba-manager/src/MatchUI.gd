@@ -2,34 +2,24 @@ extends Node
 class_name MatchUI
 
 
-var radiant_hero_ui = preload("res://src/RadiantHero.tscn")
-var dire_hero_ui = preload("res://src/DireHeroUI.tscn")
+onready var hero_uis: Dictionary = {
+	Fraction.Radiant: preload("res://src/RadiantHeroUI.tscn"),
+	Fraction.Dire: preload("res://src/DireHeroUI.tscn")
+}
+
+onready var ui_roots: Dictionary = {
+	Fraction.Radiant: $RadiantHeroes,
+	Fraction.Dire: $DireHeroes
+}
 
 
-onready var radiant_root: VBoxContainer = $RadiantHeroes
-onready var dire_root: VBoxContainer = $DireHeroes
-
-
-var heroes: Dictionary = {}
-
-
-# TODO: I can implement infinite amount of teams with dictionaries
-func add_radiant_hero(hero: Hero) -> void:
-	var hero_ui: HeroUI = radiant_hero_ui.instance()
+func add_hero(hero: Hero, fraction: int) -> void:
+	var hero_ui: HeroUI = hero_uis[fraction].instance()
 	hero_ui.init(hero)
-	radiant_root.add_child(hero_ui)
-	heroes[hero] = hero_ui
-
-
-func add_dire_hero(hero: Hero) -> void:
-	var hero_ui = dire_hero_ui.instance()
-	hero_ui.init(hero)
-	dire_root.add_child(hero_ui)
-	heroes[hero] = hero_ui
+	ui_roots[fraction].add_child(hero_ui)
 
 
 func update() -> void:
-	for hero in radiant_root.get_children():
-		hero.update()
-	for hero in dire_root.get_children():
-		hero.update()
+	for fraction in ui_roots:
+		for hero in ui_roots[fraction].get_children():
+			hero.update()

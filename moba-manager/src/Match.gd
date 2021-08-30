@@ -7,9 +7,6 @@ export(float, EASE) var _time_multiplier: = 1.0
 const _updates_per_second: = 15
 
 
-enum HeroKey { Test }
-
-
 # TODO: move to some kind of hero database
 onready var heroes: Dictionary = {
 	HeroKey.Test: preload("res://src/heroes/TestHero.tscn")
@@ -24,8 +21,8 @@ var _update_cooldown: float
 
 
 func _ready() -> void:
-	ui_root.add_radiant_hero(_create_hero(HeroKey.Test))
-	ui_root.add_dire_hero(_create_hero(HeroKey.Test))
+	ui_root.add_hero(_create_hero(HeroKey.Test), Fraction.Radiant)
+	ui_root.add_hero(_create_hero(HeroKey.Test), Fraction.Dire)
 
 
 func _create_hero(hero_key: int) -> Hero:
