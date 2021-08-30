@@ -13,10 +13,10 @@ onready var ui_roots: Dictionary = {
 }
 
 
-func add_hero(hero: Hero, fraction: int) -> void:
-	var hero_ui: HeroUI = hero_uis[fraction].instance()
+func add_hero(hero: Hero) -> void:
+	var hero_ui: HeroUI = hero_uis[hero.fraction].instance()
 	hero_ui.init(hero)
-	ui_roots[fraction].add_child(hero_ui)
+	ui_roots[hero.fraction].add_child(hero_ui)
 
 
 func update() -> void:

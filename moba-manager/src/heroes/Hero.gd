@@ -45,6 +45,9 @@ func get_gold() -> int:
 	return gold
 
 
+var fraction: int
+
+
 func update() -> void:
 	farm() # TODO: just testing
 

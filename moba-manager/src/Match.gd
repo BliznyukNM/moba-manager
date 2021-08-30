@@ -21,12 +21,13 @@ var _update_cooldown: float
 
 
 func _ready() -> void:
-	ui_root.add_hero(_create_hero(HeroKey.Test), Fraction.Radiant)
-	ui_root.add_hero(_create_hero(HeroKey.Test), Fraction.Dire)
+	ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
+	ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Dire))
 
 
-func _create_hero(hero_key: int) -> Hero:
+func _create_hero(hero_key: int, fraction: int) -> Hero:
 	var hero: Hero = heroes[hero_key].instance()
+	hero.fraction = fraction
 	heroes_root.add_child(hero)
 	return hero
 
