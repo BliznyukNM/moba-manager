@@ -48,7 +48,14 @@ func get_gold() -> int:
 var fraction: int
 
 
+var _gold_gain_ability: = CooldownValue.new(15, true)
+var _attack_ability: = CooldownValue.new(15)
+
+
 func update() -> void:
+	_gold_gain_ability.update()
+	_attack_ability.update()
+
 	farm() # TODO: just testing
 
 
@@ -57,8 +64,11 @@ func damage(value: int) -> void:
 
 
 func farm() -> void:
+	if not _gold_gain_ability.is_ready: return
 	self.gold += 1
+	_gold_gain_ability.trigger()
 
 
 func attack_target(target: Hero) -> void:
+	if not _attack_ability.is_ready: return
 	target.damage(self.attack)	

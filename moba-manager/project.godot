@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "CooldownValue",
+"language": "GDScript",
+"path": "res://src/CooldownValue.gd"
+}, {
+"base": "Reference",
 "class": "Enums",
 "language": "GDScript",
 "path": "res://src/Enums.gd"
@@ -38,14 +43,21 @@ _global_script_classes=[ {
 "class": "MatchUI",
 "language": "GDScript",
 "path": "res://src/MatchUI.gd"
+}, {
+"base": "Reference",
+"class": "Time",
+"language": "GDScript",
+"path": "res://src/Time.gd"
 } ]
 _global_script_class_icons={
+"CooldownValue": "",
 "Enums": "",
 "Fraction": "",
 "Hero": "",
 "HeroKey": "",
 "HeroUI": "",
-"MatchUI": ""
+"MatchUI": "",
+"Time": ""
 }
 
 [application]
