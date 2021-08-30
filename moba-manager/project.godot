@@ -9,10 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Enums",
+"language": "GDScript",
+"path": "res://src/Enums.gd"
+}, {
+"base": "Reference",
+"class": "Fraction",
+"language": "GDScript",
+"path": "res://src/Fraction.gd"
+}, {
 "base": "Node",
 "class": "Hero",
 "language": "GDScript",
 "path": "res://src/heroes/Hero.gd"
+}, {
+"base": "Reference",
+"class": "HeroKey",
+"language": "GDScript",
+"path": "res://src/HeroKey.gd"
 }, {
 "base": "Node",
 "class": "HeroUI",
@@ -25,7 +40,10 @@ _global_script_classes=[ {
 "path": "res://src/MatchUI.gd"
 } ]
 _global_script_class_icons={
+"Enums": "",
+"Fraction": "",
 "Hero": "",
+"HeroKey": "",
 "HeroUI": "",
 "MatchUI": ""
 }
