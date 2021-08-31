@@ -6,6 +6,8 @@ onready var name_label: Label = $Name
 onready var health_bar: TextureProgress = $Health
 onready var mana_bar: TextureProgress = $Mana
 onready var gold_label: Label = $Gold
+onready var experience_bar: TextureProgress = $Experience
+onready var level_label: Label = $Experience/Level
 
 
 var _hero: Hero
@@ -26,3 +28,7 @@ func update() -> void:
 	health_bar.value = _hero.health
 	mana_bar.value = _hero.mana
 	gold_label.text = str(_hero.gold)
+	level_label.text = str(_hero.level)
+
+	experience_bar.max_value = _hero.experience_for_next_level
+	experience_bar.value = _hero.experience

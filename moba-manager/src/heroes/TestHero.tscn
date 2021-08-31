@@ -5,3 +5,6 @@
 [node name="TestHero" type="Node"]
 script = ExtResource( 1 )
 name_key = "Test"
+base_health = 300
+base_mana = 200
+base_attack = 50
