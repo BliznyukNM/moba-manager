@@ -62,7 +62,7 @@ const _base_experience_gain: int = 30
 var _experience_per_gain: int setget , _get_experience_per_gain
 func _get_experience_per_gain() -> int:
 	var value: = _base_experience_gain
-	return value - randi() % (value / 10)
+	return value - randi() % (value / 5)
 
 
 func _is_level_max() -> bool:
@@ -82,7 +82,7 @@ const _base_gold_gain: int = 10
 var _gold_per_gain: int setget , _get_gold_per_gain
 func _get_gold_per_gain() -> int:
 	var value: = _base_gold_gain
-	return value - randi() % (value / 10)
+	return value - randi() % (value / 5)
 
 
 var fraction: int

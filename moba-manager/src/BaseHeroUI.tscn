@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Kenney UI/green_button01.png" type="Texture" id=1]
 [ext_resource path="res://Kenney UI/blue_button00.png" type="Texture" id=2]
 [ext_resource path="res://src/HeroUI.gd" type="Script" id=3]
 [ext_resource path="res://Kenney UI/grey_tickWhite.png" type="Texture" id=4]
+[ext_resource path="res://Kenney UI/yellow_tick.png" type="Texture" id=5]
 
 [node name="BaseHero" type="Control"]
 margin_right = 200.0
@@ -53,11 +54,26 @@ stretch_margin_right = 10
 stretch_margin_bottom = 2
 
 [node name="Gold" type="Label" parent="."]
-anchor_left = 0.6
+anchor_left = 0.7
 anchor_right = 1.0
+margin_right = -13.0
 margin_bottom = 15.0
-text = "0"
+text = "1235"
 align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Gold"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_right = 15.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
