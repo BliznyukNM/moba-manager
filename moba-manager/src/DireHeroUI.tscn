@@ -20,4 +20,11 @@ fill_mode = 1
 [node name="Gold" parent="." index="3"]
 anchor_left = 0.0
 anchor_right = 0.4
+margin_left = 14.0
 align = 0
+
+[node name="TextureRect" parent="Gold" index="0"]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = -12.0
+margin_right = 0.0
