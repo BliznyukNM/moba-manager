@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/maps/Map.gd" type="Script" id=1]
+
+[node name="Map" type="Node"]
+script = ExtResource( 1 )
+
+[node name="RadiantBase" type="Node" parent="."]
+
+[node name="DireBase" type="Node" parent="."]
+
+[node name="TopLane" type="Node" parent="."]
+
+[node name="BotLane" type="Node" parent="."]
+
+[node name="MidLane" type="Node" parent="."]
+
+[node name="RadiantJungle" type="Node" parent="."]
+
+[node name="DireJungle" type="Node" parent="."]
