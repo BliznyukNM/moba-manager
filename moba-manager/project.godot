@@ -43,11 +43,6 @@ _global_script_classes=[ {
 "class": "MatchUI",
 "language": "GDScript",
 "path": "res://src/MatchUI.gd"
-}, {
-"base": "Reference",
-"class": "Time",
-"language": "GDScript",
-"path": "res://src/Time.gd"
 } ]
 _global_script_class_icons={
 "CooldownValue": "",
@@ -56,14 +51,17 @@ _global_script_class_icons={
 "Hero": "",
 "HeroKey": "",
 "HeroUI": "",
-"MatchUI": "",
-"Time": ""
+"MatchUI": ""
 }
 
 [application]
 
 config/name="MOBA Manager"
 config/icon="res://icon.png"
+
+[autoload]
+
+Time="*res://src/Time.gd"
 
 [debug]
 

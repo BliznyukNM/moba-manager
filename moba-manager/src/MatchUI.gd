@@ -1,16 +1,19 @@
 extends Node
 class_name MatchUI
 
+onready var time: = $"/root/Time"
 
-onready var hero_uis: Dictionary = {
+onready var hero_uis: = {
 	Fraction.Radiant: preload("res://src/RadiantHeroUI.tscn"),
 	Fraction.Dire: preload("res://src/DireHeroUI.tscn")
 }
 
-onready var ui_roots: Dictionary = {
+onready var ui_roots: = {
 	Fraction.Radiant: $RadiantHeroes,
 	Fraction.Dire: $DireHeroes
 }
+
+onready var time_label: = $Time
 
 
 func add_hero(hero: Hero) -> void:
@@ -23,3 +26,4 @@ func update() -> void:
 	for fraction in ui_roots:
 		for hero in ui_roots[fraction].get_children():
 			hero.update()
+	time_label.text = str(time.get_passed_seconds())

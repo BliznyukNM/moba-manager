@@ -56,13 +56,12 @@ func get_experience_for_next_level() -> int:
 	return _exp_to_lvl[level - 1]
 
 
-const _base_experience_gain: int = 30
+const _base_experience_gain: int = 2
 
 
 var _experience_per_gain: int setget , _get_experience_per_gain
 func _get_experience_per_gain() -> int:
-	var value: = _base_experience_gain
-	return value - randi() % (value / 5)
+	return _base_experience_gain
 
 
 func _is_level_max() -> bool:
@@ -76,13 +75,12 @@ var level: int = 1
 var gold: int
 
 
-const _base_gold_gain: int = 10
+const _base_gold_gain: int = 2
 
 
 var _gold_per_gain: int setget , _get_gold_per_gain
 func _get_gold_per_gain() -> int:
-	var value: = _base_gold_gain
-	return value - randi() % (value / 5)
+	return _base_gold_gain
 
 
 var fraction: int
@@ -111,14 +109,14 @@ func update() -> void:
 	_exp_gain_ability.update()
 	_attack_ability.update()
 
-	farm() # TODO: just testing
+	_passive_gain()
 
 
 func damage(value: int) -> void:
 	self.health -= value
 
 
-func farm() -> void:
+func _passive_gain() -> void:
 	if _gold_gain_ability.is_ready:
 		self.gold += self._gold_per_gain
 		_gold_gain_ability.trigger()

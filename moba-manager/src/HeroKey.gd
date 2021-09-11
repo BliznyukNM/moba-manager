@@ -1,2 +1,2 @@
 class_name HeroKey
-enum { Test }
+enum { Test, SecondTest }
