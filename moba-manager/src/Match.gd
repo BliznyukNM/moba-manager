@@ -17,6 +17,10 @@ var _update_cooldown: float
 
 
 func _ready() -> void:
+	_init_selected_heroes()
+
+
+func _init_selected_heroes() -> void:
 	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
 	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
 
@@ -42,4 +46,3 @@ func _physics_process(delta: float) -> void:
 		_update()
 
 	_update_cooldown -= ticks_amount
-

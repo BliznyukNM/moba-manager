@@ -43,7 +43,9 @@ func update() -> void:
 
 
 func _time_scale_changed() -> void:
-	if _time.time_multiplicator > 0:
-		_time_scale_label.text = "x%d" % _time.time_multiplicator
+	var time_multiplicator = _time.get_current_multiplicator()
+	
+	if time_multiplicator > 0:
+		_time_scale_label.text = "x%d" % time_multiplicator
 	else:
-		_time_scale_label.text = "x1/%d" % -_time.time_multiplicator
+		_time_scale_label.text = "x1/%d" % -time_multiplicator
