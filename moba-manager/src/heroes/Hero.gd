@@ -94,9 +94,9 @@ func get_attack() -> int:
 	return base_attack - randi() % (base_attack / 10)
 
 
-var _gold_gain_ability: = CooldownValue.new(15, true)
+var _gold_gain_ability: = CooldownValue.new(16, true)
 var _exp_gain_ability: = CooldownValue.new(22, true)
-var _attack_ability: = CooldownValue.new(15)
+var _attack_ability: = CooldownValue.new(16)
 
 
 func _ready() -> void:

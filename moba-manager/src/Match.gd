@@ -1,9 +1,6 @@
 extends Node
 
 
-export(float, EASE) var _time_multiplier: = 1.0
-
-
 # TODO: move to some kind of hero database
 onready var heroes: = {
 	HeroKey.Test: preload("res://src/heroes/TestHero.tscn"),
@@ -39,7 +36,7 @@ func _update() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	_update_cooldown += delta * time.updates_per_second * _time_multiplier
+	_update_cooldown += delta * time.get_updates_per_second()
 	var ticks_amount = int(_update_cooldown)
 
 	for _i in range(0, ticks_amount):

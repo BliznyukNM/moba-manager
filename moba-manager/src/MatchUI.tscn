@@ -35,13 +35,59 @@ __meta__ = {
 [node name="Time" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -20.0
+margin_left = -40.0
 margin_top = 10.0
-margin_right = 20.0
-margin_bottom = 14.0
-text = "00:00"
+margin_right = 40.0
+margin_bottom = 24.0
+grow_horizontal = 2
+text = "000:00:00"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 35.0
+margin_right = 20.0
+margin_bottom = 50.0
+grow_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slower" type="Button" parent="Buttons"]
+margin_right = 28.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "<<"
+
+[node name="Play" type="CheckButton" parent="Buttons"]
+margin_left = 32.0
+margin_right = 108.0
+margin_bottom = 40.0
+focus_mode = 0
+pressed = true
+enabled_focus_mode = 0
+
+[node name="Faster" type="Button" parent="Buttons"]
+margin_left = 112.0
+margin_right = 140.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = ">>"
+
+[node name="TimeScale" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -29.0
+margin_top = 88.0
+margin_right = 29.0
+margin_bottom = 102.0
+text = "x1/64"
+align = 1
