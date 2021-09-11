@@ -6,7 +6,8 @@ export(float, EASE) var _time_multiplier: = 1.0
 
 # TODO: move to some kind of hero database
 onready var heroes: Dictionary = {
-	HeroKey.Test: preload("res://src/heroes/TestHero.tscn")
+	HeroKey.Test: preload("res://src/heroes/TestHero.tscn"),
+	HeroKey.SecondTest: preload("res://src/heroes/SecondTestHero.tscn")
 }
 
 
@@ -19,7 +20,7 @@ var _update_cooldown: float
 
 func _ready() -> void:
 	ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
-	ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Dire))
+	ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
 
 
 func _create_hero(hero_key: int, fraction: int) -> Hero:
@@ -33,10 +34,11 @@ func _update() -> void:
 	for hero in heroes_root.get_children():
 		hero.update()
 	ui_root.update()
+	$"/root/Time".tick()
 
 
 func _physics_process(delta: float) -> void:
-	_update_cooldown += delta * Time.updates_per_second * _time_multiplier
+	_update_cooldown += delta * $"/root/Time".updates_per_second * _time_multiplier
 	var ticks_amount = int(_update_cooldown)
 
 	for _i in range(0, ticks_amount):

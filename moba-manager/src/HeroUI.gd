@@ -2,12 +2,12 @@ extends Node
 class_name HeroUI
 
 
-onready var name_label: Label = $Name
-onready var health_bar: TextureProgress = $Health
-onready var mana_bar: TextureProgress = $Mana
-onready var gold_label: Label = $Gold
-onready var experience_bar: TextureProgress = $Experience
-onready var level_label: Label = $Experience/Level
+onready var name_label: = $Name
+onready var health_bar: = $Health
+onready var mana_bar: = $Mana
+onready var gold_label: = $Gold
+onready var experience_bar: = $Experience
+onready var level_label: = $Experience/Level
 
 
 var _hero: Hero

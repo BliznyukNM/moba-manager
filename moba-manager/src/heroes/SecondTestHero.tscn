@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/heroes/TestHero.tscn" type="PackedScene" id=1]
+
+[node name="SecondTestHero" instance=ExtResource( 1 )]
+name_key = "Second"
+base_health = 400
+base_mana = 300

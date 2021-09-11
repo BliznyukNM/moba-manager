@@ -1,8 +1,15 @@
-class_name Time
+extends Node
 
 
 const updates_per_second: = 15
 
 
-static func seconds_to_updates(seconds: int) -> int:
-	return seconds * updates_per_second
+var _ticks_passed: int
+
+
+func tick() -> void:
+	_ticks_passed += 1
+
+
+func get_passed_seconds() -> int:
+	return _ticks_passed / updates_per_second
