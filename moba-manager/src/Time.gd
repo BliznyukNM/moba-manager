@@ -7,12 +7,19 @@ const _max_multiply: = 64
 
 var _ticks_passed: int
 var _paused: bool
+var _time_multiplicators: = [-16, -8, -4, -2, 1, 2, 3, 4, 8, 16, 32, 64, 128]
+var _multiplicator_index: int = 4 # for x1
 
-var time_multiplicator: int = 1 # if < 0 -> slow down, if > 0 -> speed up
+
+func get_current_multiplicator() -> int:
+	return _time_multiplicators[_multiplicator_index]
 
 
 func get_updates_per_second() -> int:
 	if _paused: return 0
+	
+	var time_multiplicator = get_current_multiplicator()
+	
 	if time_multiplicator < 0:
 		return _updates_per_second / -time_multiplicator
 	else:
@@ -36,14 +43,8 @@ func toggle_play() -> void:
 
 
 func slow_down() -> void:
-	if time_multiplicator > 1: time_multiplicator /= 2
-	elif time_multiplicator == 1: time_multiplicator = -2
-	else: time_multiplicator *= 2
-	time_multiplicator = int(max(time_multiplicator, -_updates_per_second))
+	_multiplicator_index = max(_multiplicator_index - 1, 0)
 
 
 func speed_up() -> void:
-	if time_multiplicator < -2: time_multiplicator /= 2
-	elif time_multiplicator == -2: time_multiplicator = 1
-	else: time_multiplicator *= 2
-	time_multiplicator = int(min(time_multiplicator, _max_multiply))
+	_multiplicator_index = min(_multiplicator_index + 1, _time_multiplicators.size() - 1)
