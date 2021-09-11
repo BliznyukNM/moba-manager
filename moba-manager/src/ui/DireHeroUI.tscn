@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Kenney UI/red_button01.png" type="Texture" id=1]
-[ext_resource path="res://src/BaseHeroUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/BaseHeroUI.tscn" type="PackedScene" id=2]
 
 [node name="DireHeroUI" instance=ExtResource( 2 )]
 

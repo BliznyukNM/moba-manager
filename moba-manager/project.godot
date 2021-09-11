@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "HeroUI",
 "language": "GDScript",
-"path": "res://src/HeroUI.gd"
+"path": "res://src/ui/HeroUI.gd"
 }, {
 "base": "Node",
 "class": "Map",
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "MatchUI",
 "language": "GDScript",
-"path": "res://src/MatchUI.gd"
+"path": "res://src/ui/MatchUI.gd"
 } ]
 _global_script_class_icons={
 "CooldownValue": "",
