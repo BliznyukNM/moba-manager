@@ -91,3 +91,6 @@ margin_right = 29.0
 margin_bottom = 102.0
 text = "x1/64"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

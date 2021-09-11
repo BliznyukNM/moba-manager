@@ -9,7 +9,7 @@ onready var _heroes: = {
 
 
 onready var _ui_root: = $MatchUI
-onready var _heroes_root: = $Heroes
+onready var _map: = $Map
 onready var _time: = $"/root/Time"
 
 
@@ -24,13 +24,12 @@ func _ready() -> void:
 func _create_hero(hero_key: int, fraction: int) -> Hero:
 	var hero: Hero = _heroes[hero_key].instance()
 	hero.fraction = fraction
-	_heroes_root.add_child(hero)
+	_map.spawn_hero(hero, fraction)
 	return hero
 
 
 func _update() -> void:
-	for hero in _heroes_root.get_children():
-		hero.update()
+	_map.update()
 	_ui_root.update()
 	_time.tick()
 
