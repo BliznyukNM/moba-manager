@@ -8,9 +8,7 @@ const _max_multiply: = 64
 var _ticks_passed: int
 var _paused: bool
 
-var time_multiplicator: int = 1 setget , get_time_multiplicator # if < 0 -> slow down, if > 0 -> speed up
-func get_time_multiplicator() -> int:
-	return time_multiplicator
+var time_multiplicator: int = 1 # if < 0 -> slow down, if > 0 -> speed up
 
 
 func get_updates_per_second() -> int:
