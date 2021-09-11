@@ -117,14 +117,14 @@ func damage(value: int) -> void:
 
 
 func _passive_gain() -> void:
-	if _gold_gain_ability.is_ready:
+	if _gold_gain_ability.is_ready():
 		self.gold += self._gold_per_gain
 		_gold_gain_ability.trigger()
-	if _exp_gain_ability.is_ready:
+	if _exp_gain_ability.is_ready():
 		self.experience += self._experience_per_gain 
 		_exp_gain_ability.trigger()
 
 
 func attack_target(target: Hero) -> void:
-	if not _attack_ability.is_ready: return
+	if not _attack_ability.is_ready(): return
 	target.damage(self.attack)	

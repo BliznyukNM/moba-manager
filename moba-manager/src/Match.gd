@@ -5,14 +5,15 @@ export(float, EASE) var _time_multiplier: = 1.0
 
 
 # TODO: move to some kind of hero database
-onready var heroes: Dictionary = {
+onready var heroes: = {
 	HeroKey.Test: preload("res://src/heroes/TestHero.tscn"),
 	HeroKey.SecondTest: preload("res://src/heroes/SecondTestHero.tscn")
 }
 
 
-onready var ui_root: MatchUI = $MatchUI
-onready var heroes_root: Node = $Heroes
+onready var ui_root: = $MatchUI
+onready var heroes_root: = $Heroes
+onready var time: = $"/root/Time"
 
 
 var _update_cooldown: float
@@ -34,11 +35,11 @@ func _update() -> void:
 	for hero in heroes_root.get_children():
 		hero.update()
 	ui_root.update()
-	$"/root/Time".tick()
+	time.tick()
 
 
 func _physics_process(delta: float) -> void:
-	_update_cooldown += delta * $"/root/Time".updates_per_second * _time_multiplier
+	_update_cooldown += delta * time.updates_per_second * _time_multiplier
 	var ticks_amount = int(_update_cooldown)
 
 	for _i in range(0, ticks_amount):

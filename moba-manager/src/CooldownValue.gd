@@ -16,13 +16,12 @@ func _init(cooldown_time: int, on_cooldown: bool = false) -> void:
 	if on_cooldown: cooldown = max_cooldown
 
 
-var is_ready: bool setget , get_is_ready
-func get_is_ready() -> bool:
+func is_ready() -> bool:
 	return cooldown == 0
 
 
 func trigger() -> void:
-	if not self.is_ready: assert("attempt to trigger ability in cooldown")
+	if not is_ready(): assert("attempt to trigger ability in cooldown")
 	cooldown = max_cooldown
 
 

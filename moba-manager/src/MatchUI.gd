@@ -26,4 +26,4 @@ func update() -> void:
 	for fraction in ui_roots:
 		for hero in ui_roots[fraction].get_children():
 			hero.update()
-	time_label.text = str(time.get_passed_seconds())
+	time_label.text = str(time.get_passed_time())
