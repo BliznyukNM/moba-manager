@@ -22,15 +22,7 @@ func _ready() -> void:
 
 func _init_selected_heroes() -> void:
 	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
-	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
-	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
-	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
-	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
 	
-	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
-	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
-	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
-	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
 	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
 
 

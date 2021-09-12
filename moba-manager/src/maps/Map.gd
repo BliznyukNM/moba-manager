@@ -2,33 +2,43 @@ extends Node
 class_name Map
 
 
-export var _fraction_base: = {
-	Fraction.Radiant: NodePath("RadiantBase"),
-	Fraction.Dire: NodePath("DireBase")
-}
+var _graph_data: = {}
 
 
-func spawn_hero(hero: Hero, fraction: int) -> void:
-	var base_node: = get_node(_fraction_base[fraction])
-	base_node.add_child(hero)
+func _get_baked_data() -> Dictionary: return _graph_data['baked_data']
+func _get_connections() -> Dictionary: return _graph_data['connections']
 
 
-func move_hero(hero: Hero, node_path: NodePath) -> void:
-	assert(has_node(node_path), "No such node: %s" % node_path)
-	var node: = get_node(node_path)
-	hero.get_parent().remove_child(hero)
-	node.add_child(hero)
+export(String, FILE, '*.gv') var graph_file: String
 
 
-func update() -> void:
-	for node in get_children():
-		for object in node.get_children():
-			if not object.has_method("update"): continue
-			object.update()
+func _ready() -> void:
+	_prepare_map()
 
 
-func get_available_nodes() -> Array:
-	var paths: = []
-	for child in get_children():
-		paths.append(get_path_to(child))
-	return paths
+func _prepare_map() -> void:
+	_graph_data['connections'] = GraphParser.parse(graph_file, self)
+	_graph_data['baked_data'] = _bake_paths()
+
+
+func _bake_paths() -> Dictionary:
+	var connections: Dictionary = _graph_data['connections']
+	var baked_data: = {}
+	
+	for source in connections:
+		baked_data[source] = Dijkstra.evaluate(source, connections)
+	
+	return baked_data
+
+
+func get_baked_path(from: Node, to: Node) -> Array:
+	var result: = []
+	var baked_data: = _get_baked_data()
+	
+	var data: Dictionary = baked_data[from]
+	while to != null:
+		result.append(to)
+		to = data[to][1]
+	
+	result.invert()
+	return result
