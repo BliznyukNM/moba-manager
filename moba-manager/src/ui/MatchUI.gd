@@ -4,8 +4,8 @@ class_name MatchUI
 onready var _time: = $"/root/Time"
 
 onready var _hero_uis: = {
-	Fraction.Radiant: preload("res://src/RadiantHeroUI.tscn"),
-	Fraction.Dire: preload("res://src/DireHeroUI.tscn")
+	Fraction.Radiant: preload("res://src/ui/RadiantHeroUI.tscn"),
+	Fraction.Dire: preload("res://src/ui/DireHeroUI.tscn")
 }
 
 onready var _ui_roots: = {
@@ -13,18 +13,18 @@ onready var _ui_roots: = {
 	Fraction.Dire: $DireHeroes
 }
 
-onready var _time_label: = $Time
-onready var _time_scale_label: = $TimeScale
+onready var _time_label: = $TimeControls/Time
+onready var _time_scale_label: = $TimeControls/TimeScale
 
 
 func _ready() -> void:
-	$Buttons/Play.connect("button_up", _time, "toggle_play")
+	$TimeControls/Buttons/Play.connect("button_up", _time, "toggle_play")
 	
-	$Buttons/Slower.connect("button_up", _time, "slow_down")
-	$Buttons/Slower.connect("button_up", self, "_time_scale_changed")
+	$TimeControls/Buttons/Slower.connect("button_up", _time, "slow_down")
+	$TimeControls/Buttons/Slower.connect("button_up", self, "_time_scale_changed")
 	
-	$Buttons/Faster.connect("button_up", _time, "speed_up")
-	$Buttons/Faster.connect("button_up", self, "_time_scale_changed")
+	$TimeControls/Buttons/Faster.connect("button_up", _time, "speed_up")
+	$TimeControls/Buttons/Faster.connect("button_up", self, "_time_scale_changed")
 	
 	_time_scale_changed()
 
