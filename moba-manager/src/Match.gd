@@ -29,12 +29,12 @@ func _init_selected_heroes() -> void:
 func _create_hero(hero_key: int, fraction: int) -> Hero:
 	var hero: Hero = _heroes[hero_key].instance()
 	hero.fraction = fraction
-	_map.spawn_hero(hero, fraction)
+	#_map.spawn_hero(hero, fraction)
 	return hero
 
 
 func _update() -> void:
-	_map.update()
+	#_map.update()
 	_ui_root.update()
 	_time.tick()
 
