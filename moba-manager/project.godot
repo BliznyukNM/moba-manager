@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "CooldownValue",
 "language": "GDScript",
-"path": "res://src/CooldownValue.gd"
+"path": "res://src/common/CooldownValue.gd"
 }, {
 "base": "Reference",
 "class": "Dijkstra",
 "language": "GDScript",
-"path": "res://src/maps/Dijkstra.gd"
+"path": "res://src/servers/utils/Dijkstra.gd"
 }, {
 "base": "Reference",
 "class": "Fraction",
 "language": "GDScript",
-"path": "res://src/Fraction.gd"
+"path": "res://src/common/Fraction.gd"
 }, {
 "base": "Reference",
 "class": "GraphParser",
 "language": "GDScript",
-"path": "res://src/maps/GraphParser.gd"
+"path": "res://src/servers/utils/GraphParser.gd"
 }, {
 "base": "Node",
 "class": "Hero",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "HeroKey",
 "language": "GDScript",
-"path": "res://src/HeroKey.gd"
+"path": "res://src/common/HeroKey.gd"
 }, {
 "base": "Node",
 "class": "HeroUI",
@@ -45,9 +45,9 @@ _global_script_classes=[ {
 "path": "res://src/ui/HeroUI.gd"
 }, {
 "base": "Node",
-"class": "Map",
+"class": "MapServer",
 "language": "GDScript",
-"path": "res://src/maps/Map.gd"
+"path": "res://src/servers/MapServer.gd"
 }, {
 "base": "Node",
 "class": "MatchUI",
@@ -62,7 +62,7 @@ _global_script_class_icons={
 "Hero": "",
 "HeroKey": "",
 "HeroUI": "",
-"Map": "",
+"MapServer": "",
 "MatchUI": ""
 }
 

@@ -1,5 +1,5 @@
 extends Node
-class_name Map
+class_name MapServer
 
 
 var _graph_data: = {}
