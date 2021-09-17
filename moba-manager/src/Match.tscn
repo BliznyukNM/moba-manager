@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/ui/MatchUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Match.gd" type="Script" id=2]
 [ext_resource path="res://src/servers/MapServer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/map/MapView.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/servers/bots/BotServer.gd" type="Script" id=5]
 
 [node name="Match" type="Node"]
 script = ExtResource( 2 )
@@ -11,6 +12,7 @@ script = ExtResource( 2 )
 [node name="MapServer" parent="." instance=ExtResource( 3 )]
 
 [node name="BotServer" type="Node" parent="."]
+script = ExtResource( 5 )
 
 [node name="MapView" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, -200 )

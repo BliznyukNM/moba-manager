@@ -4,7 +4,7 @@ class_name Dijkstra
 const INT_INFINITY: = 9223372036854775807
 
 
-static func evaluate(origin: Node, connections: Dictionary) -> Dictionary:
+func evaluate(origin: Node, connections: Dictionary) -> Dictionary:
 	var result: = {}
 	var visited_nodes: = []
 	var unvisited_nodes: = connections.keys()
@@ -27,7 +27,7 @@ static func evaluate(origin: Node, connections: Dictionary) -> Dictionary:
 	return result
 
 
-static func _get_closest_node(data: Dictionary, blacklist: Array) -> Node:
+func _get_closest_node(data: Dictionary, blacklist: Array) -> Node:
 	var node: Node
 	var distance: int = INT_INFINITY
 	
@@ -38,3 +38,7 @@ static func _get_closest_node(data: Dictionary, blacklist: Array) -> Node:
 		node = n
 	
 	return node
+
+
+func _get_weight_to_node(data: Dictionary, target: Node) -> int:
+	return 0

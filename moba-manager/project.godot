@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "Bot",
+"language": "GDScript",
+"path": "res://src/servers/bots/Bot.gd"
+}, {
+"base": "Node",
+"class": "BotServer",
+"language": "GDScript",
+"path": "res://src/servers/bots/BotServer.gd"
+}, {
+"base": "Reference",
 "class": "CooldownValue",
 "language": "GDScript",
 "path": "res://src/common/CooldownValue.gd"
@@ -18,6 +28,11 @@ _global_script_classes=[ {
 "class": "Dijkstra",
 "language": "GDScript",
 "path": "res://src/servers/utils/Dijkstra.gd"
+}, {
+"base": "Reference",
+"class": "FarmState",
+"language": "GDScript",
+"path": "res://src/servers/bots/FarmState.gd"
 }, {
 "base": "Reference",
 "class": "Fraction",
@@ -55,8 +70,11 @@ _global_script_classes=[ {
 "path": "res://src/ui/MatchUI.gd"
 } ]
 _global_script_class_icons={
+"Bot": "",
+"BotServer": "",
 "CooldownValue": "",
 "Dijkstra": "",
+"FarmState": "",
 "Fraction": "",
 "GraphParser": "",
 "Hero": "",

@@ -9,7 +9,8 @@ onready var _heroes: = {
 
 
 onready var _ui_root: = $MatchUI
-onready var _map: = $Map
+onready var _map: = $MapServer
+onready var _bots: = $BotServer
 onready var _time: = $"/root/Time"
 
 
@@ -21,9 +22,16 @@ func _ready() -> void:
 
 
 func _init_selected_heroes() -> void:
-	_ui_root.add_hero(_create_hero(HeroKey.Test, Fraction.Radiant))
-	
-	_ui_root.add_hero(_create_hero(HeroKey.SecondTest, Fraction.Dire))
+	# TODO: temp code, remove after selection of heroes is done
+	var hero1: = _create_hero(HeroKey.Test, Fraction.Radiant)
+	_register_hero(hero1)
+	var hero2: = _create_hero(HeroKey.SecondTest, Fraction.Dire)
+	_register_hero(hero2)
+
+
+func _register_hero(hero: Hero) -> void:
+	_ui_root.add_hero(hero)
+	_bots.create_bot(hero)
 
 
 func _create_hero(hero_key: int, fraction: int) -> Hero:
@@ -35,7 +43,9 @@ func _create_hero(hero_key: int, fraction: int) -> Hero:
 
 func _update() -> void:
 	#_map.update()
+	_bots.update()
 	_ui_root.update()
+	
 	_time.tick()
 
 

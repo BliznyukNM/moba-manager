@@ -2,14 +2,18 @@ extends Node
 class_name MapServer
 
 
-var _graph_data: = {}
+var _graph_parser: = GraphParser.new()
+var _dijkstra: = Dijkstra.new()
+
+
+var _graph_data: Dictionary
 
 
 func _get_baked_data() -> Dictionary: return _graph_data['baked_data']
 func _get_connections() -> Dictionary: return _graph_data['connections']
 
 
-export(String, FILE, '*.gv') var graph_file: String
+export(String, FILE, '*.json') var graph_file: String
 
 
 func _ready() -> void:
@@ -17,16 +21,17 @@ func _ready() -> void:
 
 
 func _prepare_map() -> void:
-	_graph_data['connections'] = GraphParser.parse(graph_file, self)
+	var raw_data: = _graph_parser.parse(graph_file)
+	_graph_data['connections'] = _graph_parser.bind_objects(raw_data['connections'], raw_data['buildings'], self)
 	_graph_data['baked_data'] = _bake_paths()
 
 
 func _bake_paths() -> Dictionary:
-	var connections: Dictionary = _graph_data['connections']
+	var connections: Dictionary = _get_connections()
 	var baked_data: = {}
 	
 	for source in connections:
-		baked_data[source] = Dijkstra.evaluate(source, connections)
+		baked_data[source] = _dijkstra.evaluate(source, connections)
 	
 	return baked_data
 

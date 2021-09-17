@@ -4,4 +4,4 @@
 
 [node name="MapServer" type="Node"]
 script = ExtResource( 1 )
-graph_file = "res://src/maps/Graph.gv"
+graph_file = "res://src/servers/basic_map.json"
