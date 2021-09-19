@@ -57,5 +57,10 @@ func _insert_connection(binds: Dictionary, source: Node, target: Node, weight: i
 
 
 func create_buildings(buildings: Dictionary, root: Node) -> void:
-	pass
+	for area in buildings:
+		var area_node: = _get_area(area, root)
+		for build_info in buildings[area]:
+			var building: = Node.new()
+			building.name = build_info[0]
+			area_node.add_child(building)
 
