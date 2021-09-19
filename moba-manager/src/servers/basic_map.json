@@ -33,49 +33,41 @@
         ]
     },
     "connections": {
-            "AncientRadiant/Exit": [
-                ["Top/RadiantExit", 2],
-                ["Mid/RadiantExit", 2],
-                ["Bot/RadiantExit", 2]
-            ],
-            "AncientDire/Exit": [
-                ["Top/DireExit", 2],
-                ["Mid/DireExit", 2],
-                ["Bot/DireExit", 2]
-            ],
-            "Mid/RadiantExit": [
-                ["Top/RadiantExit", 3],
-                ["Bot/RadiantExit", 3]
-            ],
-            "Mid/DireExit": [
-                ["Top/DireExit", 3],
-                ["Bot/DireExit", 3]
-            ],
-            "Bot/RiverExit": [
-                ["RiverBot/BotExit", 4]
-            ],
-            "Top/RiverExit": [
-                ["RiverTop/TopExit", 4]
-            ],
-            "Mid/RiverExit": [
-                ["RiverTop/MidExit", 2],
-                ["RiverBot/MidExit", 2]
-            ]
+        "AncientRadiant/Exit": [
+            ["Top/RadiantExit", 2],
+            ["Mid/RadiantExit", 2],
+            ["Bot/RadiantExit", 2]
+        ],
+        "AncientDire/Exit": [
+            ["Top/DireExit", 2],
+            ["Mid/DireExit", 2],
+            ["Bot/DireExit", 2]
+        ],
+        "Mid/RadiantExit": [
+            ["Top/RadiantExit", 3],
+            ["Bot/RadiantExit", 3]
+        ],
+        "Mid/DireExit": [
+            ["Top/DireExit", 3],
+            ["Bot/DireExit", 3]
+        ],
+        "Bot/RiverExit": [
+            ["RiverBot/BotExit", 4]
+        ],
+        "Top/RiverExit": [
+            ["RiverTop/TopExit", 4]
+        ],
+        "Mid/RiverExit": [
+            ["RiverTop/MidExit", 2],
+            ["RiverBot/MidExit", 2]
+        ]
     },
     "buildings": {
-            "Mid": [
-                {
-                    "Radiant/Barracks/Melee": 1
-                },
-                {
-                    "Radiant/Barracks/Range": 1
-                },
-                {
-                    "Dire/Barracks/Melee": -1
-                },
-                {
-                    "Dire/Barracks/Range": -1
-                }
-            ]
+        "Mid": [
+            ["Radiant/Barracks/Melee", 1],
+            ["Radiant/Barracks/Range", 1],
+            ["Dire/Barracks/Melee", -1],
+            ["Dire/Barracks/Range", -1]
+        ]
     }
 }

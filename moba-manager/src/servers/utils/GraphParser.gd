@@ -14,46 +14,48 @@ func parse(file: String) -> Dictionary:
 	return data
 
 
-func bind_objects(connections: Dictionary, buildings: Dictionary, root: Node) -> Dictionary:
-	var binds: Dictionary
+func create_nodes(nodes: Dictionary, root: Node) -> void:
+	for node in nodes:
+		var area: = _get_area(node, root)
+		for data in nodes[node]:
+			_create_node_in_area(data[0], data[1], area)
+		area.recalculate_length()
+
+
+func _get_area(path: String, root: Node) -> TravelArea:
+	var node: TravelArea = root.get_node_or_null(path)
 	
-	for connection in connections:
-		_process_connection(NodePath(connection), connections[connection], binds, root)
+	if node == null:
+		node = TravelArea.new()
+		node.name = path
+		root.add_child(node)
 	
-	for building in buildings:
-		pass
-	
+	return node
+
+
+func _create_node_in_area(name: String, offset: int, area: TravelArea) -> void:
+	var node: = TravelNode.new()
+	node.name = name
+	node.area_offset = offset
+	area.add_child(node)
+
+
+func create_connections(connections: Dictionary, root: Node) -> Dictionary:
+	var binds: = {}
+	for node in connections:
+		var source_node: = root.get_node(node)
+		for data in connections[node]:
+			var target_node: = root.get_node(data[0])
+			if not binds.has(source_node): binds[source_node] = {}
+			
 	return binds
 
 
-func _process_connection(source: NodePath, connections: Array, binds: Dictionary, root: Node) -> void:
-	for connection in connections:
-		var source_node: = _get_node(source, root)
-		var target_node: = _get_node(NodePath(connection[0]), root)
-		_insert_bind(binds, source_node, target_node, connection[1])
-		_insert_bind(binds, target_node, source_node, connection[1])
-
-
-func _insert_bind(binds: Dictionary, source: Node, target: Node, weight: int) -> void:
+func _insert_connection(binds: Dictionary, source: Node, target: Node, weight: int) -> void:
 	if not binds.has(source): binds[source] = {}
 	binds[source][target] = weight
 
 
-func _get_node(path: NodePath, root: Node) -> Node:
-	var node: = root.get_node_or_null(path)
+func create_buildings(buildings: Dictionary, root: Node) -> void:
+	pass
 
-	if node != null: return node
-
-	var area_node: = root.get_node_or_null(path.get_name(0))
-
-	if area_node == null:
-		area_node = Node.new()
-		area_node.name = path.get_name(0)
-		root.add_child(area_node)
-
-	if node == null:
-		node = Node.new()
-		node.name = path.get_name(1)
-		area_node.add_child(node)
-
-	return node

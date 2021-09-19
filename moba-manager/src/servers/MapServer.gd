@@ -22,8 +22,10 @@ func _ready() -> void:
 
 func _prepare_map() -> void:
 	var raw_data: = _graph_parser.parse(graph_file)
-	_graph_data['connections'] = _graph_parser.bind_objects(raw_data['connections'], raw_data['buildings'], self)
-	_graph_data['baked_data'] = _bake_paths()
+	_graph_parser.create_nodes(raw_data['nodes'], self)
+	#_graph_data['connections'] = _graph_parser.create_nodes(raw_data['connections'], self)
+	#_graph_data['baked_data'] = _bake_paths()
+	#_graph_parser.create_buildings(raw_data['buildings'], self)
 
 
 func _bake_paths() -> Dictionary:

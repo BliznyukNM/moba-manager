@@ -68,6 +68,16 @@ _global_script_classes=[ {
 "class": "MatchUI",
 "language": "GDScript",
 "path": "res://src/ui/MatchUI.gd"
+}, {
+"base": "Node",
+"class": "TravelArea",
+"language": "GDScript",
+"path": "res://src/servers/TravelArea.gd"
+}, {
+"base": "Node",
+"class": "TravelNode",
+"language": "GDScript",
+"path": "res://src/servers/TravelNode.gd"
 } ]
 _global_script_class_icons={
 "Bot": "",
@@ -81,7 +91,9 @@ _global_script_class_icons={
 "HeroKey": "",
 "HeroUI": "",
 "MapServer": "",
-"MatchUI": ""
+"MatchUI": "",
+"TravelArea": "",
+"TravelNode": ""
 }
 
 [application]
