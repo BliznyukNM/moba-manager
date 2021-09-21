@@ -14,12 +14,15 @@ func parse(file: String) -> Dictionary:
 	return data
 
 
-func create_nodes(nodes: Dictionary, root: Node) -> void:
+func create_nodes(nodes: Dictionary, root: Node) -> Array:
+	var created_nodes: = []
 	for node in nodes:
 		var area: = _get_area(node, root)
 		for data in nodes[node]:
-			_create_node_in_area(data[0], data[1], area)
+			var created_node = _create_node_in_area(data[0], data[1], area)
+			created_nodes.append(created_node)
 		area.recalculate_length()
+	return created_nodes
 
 
 func _get_area(path: String, root: Node) -> TravelArea:
@@ -33,11 +36,12 @@ func _get_area(path: String, root: Node) -> TravelArea:
 	return node
 
 
-func _create_node_in_area(name: String, offset: int, area: TravelArea) -> void:
+func _create_node_in_area(name: String, offset: int, area: TravelArea) -> TravelNode:
 	var node: = TravelNode.new()
 	node.name = name
 	node.area_offset = offset
 	area.add_child(node)
+	return node
 
 
 func create_connections(connections: Dictionary, root: Node) -> Dictionary:
@@ -47,7 +51,9 @@ func create_connections(connections: Dictionary, root: Node) -> Dictionary:
 		for data in connections[node]:
 			var target_node: = root.get_node(data[0])
 			if not binds.has(source_node): binds[source_node] = {}
-			
+			if not binds.has(target_node): binds[target_node] = {}
+			binds[source_node][target_node] = data[1]
+			binds[target_node][source_node] = data[1]
 	return binds
 
 

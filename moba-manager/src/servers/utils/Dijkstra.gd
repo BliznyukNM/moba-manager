@@ -4,15 +4,14 @@ class_name Dijkstra
 const INT_INFINITY: = 9223372036854775807
 
 
-func evaluate(origin: Node, connections: Dictionary) -> Dictionary:
+func evaluate(origin: Node, connections: Dictionary, nodes: Array) -> Dictionary:
 	var result: = {}
 	var visited_nodes: = []
-	var unvisited_nodes: = connections.keys()
 	
-	for node in unvisited_nodes:
+	for node in nodes:
 		result[node] = [INT_INFINITY if node != origin else 0, null]
 	
-	while unvisited_nodes.size() > 0:
+	while nodes.size() > 0:
 		var visiting_node: Node = _get_closest_node(result, visited_nodes)
 		var neighbours_data: Dictionary = connections[visiting_node]
 		
@@ -22,7 +21,7 @@ func evaluate(origin: Node, connections: Dictionary) -> Dictionary:
 			if result[neighbour][0] > distance: result[neighbour] = [distance, visiting_node]
 		
 		visited_nodes.append(visiting_node)
-		unvisited_nodes.remove(unvisited_nodes.find(visiting_node))
+		nodes.remove(nodes.find(visiting_node))
 	
 	return result
 
